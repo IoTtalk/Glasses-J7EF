@@ -76,4 +76,21 @@
             android:text="@string/main_all" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="horizontal"
+        style="@style/MainLLayout"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:background="@mipmap/ic_launcher"
+            android:layout_weight="1"
+            android:id="@+id/btn_iottalk_sersor"
+            style="@style/MainBtn" />
+
+        <TextView
+            android:layout_weight="2"
+            style="@style/MainText"
+            android:text="@string/main_iottalk_sensor" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

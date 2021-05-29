@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 	private ImageButton imgBtnCamera;
 	private ImageButton imgBtnDc;
 	private ImageButton imgBtnAf;
+	private ImageButton imgBtnIoTtalk;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 		imgBtnCamera = findViewById(R.id.btn_camera);
 		imgBtnDc = findViewById(R.id.btn_device_control);
 		imgBtnAf = findViewById(R.id.btn_af_activity);
+		imgBtnIoTtalk = findViewById(R.id.btn_iottalk_sersor);
 
 		imgBtnSensor.setOnClickListener(v -> startActivity(new Intent(this,
 				SensorActivity.class)));
@@ -34,5 +36,8 @@ public class MainActivity extends AppCompatActivity {
 				v -> startActivity(new Intent(this, DeviceControlActivity.class)));
 		imgBtnAf.setOnClickListener(v -> startActivity(new Intent(this,
 				AllFeatureActivity.class)));
+		imgBtnIoTtalk.setOnClickListener(v -> startActivity(new Intent(this,
+				SensorIottalkActivity.class)));
+
 	}
 }

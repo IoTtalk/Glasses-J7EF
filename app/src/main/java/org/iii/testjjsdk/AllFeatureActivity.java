@@ -142,8 +142,9 @@ public class AllFeatureActivity extends AppCompatActivity {
 	protected void onStop() {
 		super.onStop();
 		cameraManager.stopCamera();
-		sensorManager.release();
 		displayManager.close();
+		sensorManager.release();
+
 	}
 
 	private void initTimer() {

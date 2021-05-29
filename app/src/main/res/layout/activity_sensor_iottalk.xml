@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_connect"
+        style="@style/SensorText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/connect_info" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_acc"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/accelerometer" />
+
+        <TextView
+            android:id="@+id/text_acc_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_gravity"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/gravity" />
+
+        <TextView
+            android:id="@+id/text_gravity_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_gyro"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/gyroscope" />
+
+        <TextView
+            android:id="@+id/text_gyro_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_light"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/light" />
+
+        <TextView
+            android:id="@+id/text_light_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value10" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_5"
+        android:layout_width="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_linear_acc"
+            style="@style/SensorText"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:text="@string/linear_accelerometer" />
+
+        <TextView
+            android:id="@+id/text_linear_acc_v"
+            style="@style/SensorText"
+            android:layout_height="wrap_content"
+            android:text="@string/sensor_value30" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_mag"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/magnetic_field" />
+
+        <TextView
+            android:id="@+id/text_mag_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_rv"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/rotation_vector" />
+
+        <TextView
+            android:id="@+id/text_rv_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value40" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_acc_ph"
+            style="@style/SensorText"
+            android:layout_width="190dp"
+            android:text="@string/phone_accelerometer" />
+
+        <TextView
+            android:id="@+id/text_acc_ph_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_gyro_ph"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/phone_gyroscope" />
+
+        <TextView
+            android:id="@+id/text_gyro_ph_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_rv_ph"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/phone_rotation_vector" />
+
+        <TextView
+            android:id="@+id/text_rv_ph_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value40" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_light_ph"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="@string/phone_light" />
+
+        <TextView
+            android:id="@+id/text_light_ph_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value10" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_ori_1"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="Orientation G : " />
+
+        <TextView
+            android:id="@+id/text_ori_1_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title_13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_ori_2"
+            style="@style/SensorText"
+            android:layout_width="170dp"
+            android:text="Orientation P : " />
+
+        <TextView
+            android:id="@+id/text_ori_2_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

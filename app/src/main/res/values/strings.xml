@@ -5,6 +5,9 @@
     <string name="main_camera">Camera Example</string>
     <string name="main_device_control">Device Control Example</string>
     <string name="main_all">All Features</string>
+    <string name="main_iottalk_sensor">IoTtalk Sensors Demo</string>
+
+    <string name="connect_info">Connecting...<br/>Device model : <br/>Device name :</string>
 
     <string name="accelerometer">ACCELEROMETER :</string>
     <string name="gravity">GRAVITY :</string>
@@ -13,14 +16,19 @@
     <string name="linear_accelerometer">LINEAR ACCELEROMETER :</string>
     <string name="magnetic_field">COMPASS :</string>
     <string name="rotation_vector">ROTATION_VECTOR :</string>
+    <string name="phone_accelerometer">PHONE ACCELEROMETER :</string>
+    <string name="phone_gyroscope">PHONE GYROSCOPE :</string>
+    <string name="phone_rotation_vector">PHONE ROTATION_VECTOR :</string>
+    <string name="phone_light">LIGHT :</string>
 
     <string name="sensor_value1d">%d hz.</string>
-    <string name="sensor_value1f">%.1f\t</string>
+    <string name="sensor_value1f">%.2f\t</string>
     <string name="sensor_value10">0</string>
     <string name="sensor_value30">0, 0, 0</string>
-    <string name="sensor_value3">%.5f\t, %.5f\t, %.5f</string>
+    <string name="sensor_value3">%.3f\t, %.3f\t, %.3f</string>
+    <string name="sensor_value3_2f">%.2f\t, %.2f\t, %.2f</string>
     <string name="sensor_value40">0, 0, 0, 0</string>
-    <string name="sensor_value4">%.5f\t, %.5f\t, %.5f, %.5f</string>
+    <string name="sensor_value4">%.3f\t, %.3f\t, %.3f, %.3f</string>
 
     <string name="camera_fps">%d fps.</string>
     <string name="start_preview">Start Preview</string>

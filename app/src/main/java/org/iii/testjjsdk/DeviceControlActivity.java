@@ -2,8 +2,6 @@ package org.iii.testjjsdk;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -48,19 +46,6 @@ public class DeviceControlActivity extends AppCompatActivity {
 	private void initUIComponent() {
 		RadioButton radioDisplay2D = findViewById(R.id.btn_display_2D);
 		RadioButton radioDisplay3D = findViewById(R.id.btn_display_3D);
-
-		Button testMute = (Button)findViewById(R.id.testMute);
-
-		testMute.setOnClickListener(new View.OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				displayManager.setMute();
-			}
-
-		});
-
 
 		radioDisplay2D.setOnCheckedChangeListener((button, isChecked) -> {
 			if (isChecked) {
