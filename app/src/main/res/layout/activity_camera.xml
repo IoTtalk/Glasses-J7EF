@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_camera_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_preview"
+        app:layout_constraintStart_toEndOf="@id/guildline_camera_end"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_camera_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_preview"
+        app:layout_constraintStart_toEndOf="@id/guildline_camera_end"
+        app:layout_constraintTop_toBottomOf="@id/btn_camera_open" />
+
+    <Button
+        android:id="@+id/btn_take_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/take_photo"
+        app:layout_constraintStart_toEndOf="@+id/guildline_btn_end"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekbar_brightness"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40sp"
+        android:max="100"
+        android:min="0"
+        android:progress="50"
+        app:layout_constraintBottom_toBottomOf="@+id/text_brightness"
+        app:layout_constraintEnd_toEndOf="@+id/guildline_camera_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_end"
+        app:layout_constraintTop_toTopOf="@id/text_brightness" />
+
+    <SeekBar
+        android:id="@+id/seekbar_contrast"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40sp"
+        android:max="100"
+        android:min="0"
+        android:progress="0"
+        app:layout_constraintBottom_toBottomOf="@+id/text_contrast"
+        app:layout_constraintEnd_toEndOf="@+id/guildline_camera_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_end"
+        app:layout_constraintTop_toTopOf="@id/text_contrast" />
+
+    <SeekBar
+        android:id="@+id/seekbar_sharpness"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40sp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintBottom_toBottomOf="@+id/text_sharpness"
+        app:layout_constraintEnd_toEndOf="@+id/guildline_camera_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_end"
+        app:layout_constraintTop_toTopOf="@id/text_sharpness" />
+
+    <SeekBar
+        android:id="@+id/seekbar_gamma"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40sp"
+        android:max="100"
+        android:min="0"
+        android:progress="0"
+        app:layout_constraintBottom_toBottomOf="@+id/text_gamma"
+        app:layout_constraintEnd_toEndOf="@+id/guildline_camera_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_end"
+        app:layout_constraintTop_toTopOf="@id/text_gamma" />
+
+    <SeekBar
+        android:id="@+id/seekbar_hue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40sp"
+        android:max="255"
+        android:min="0"
+        android:progress="0"
+        app:layout_constraintBottom_toBottomOf="@+id/text_hue"
+        app:layout_constraintEnd_toEndOf="@+id/guildline_camera_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_end"
+        app:layout_constraintTop_toTopOf="@id/text_hue" />
+
+    <SeekBar
+        android:id="@+id/seekbar_saturation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="40sp"
+        android:max="100"
+        android:progress="30"
+        app:layout_constraintBottom_toBottomOf="@+id/text_saturation"
+        app:layout_constraintEnd_toEndOf="@+id/guildline_camera_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_end"
+        app:layout_constraintTop_toTopOf="@id/text_saturation" />
+
+    <Spinner
+        android:id="@+id/spin_resolution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/text_resolution"
+        app:layout_constraintStart_toEndOf="@id/guildline_spin_start"
+        app:layout_constraintTop_toTopOf="@id/text_resolution" />
+
+    <Spinner
+        android:id="@+id/spin_power_line_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guildline_spin_start"
+        app:layout_constraintTop_toBottomOf="@id/text_power_line_f"
+        app:layout_constraintTop_toTopOf="@id/text_power_line_f" />
+
+    <SurfaceView
+        android:id="@+id/surface_camera"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/guildline_camera_bot"
+        app:layout_constraintEnd_toStartOf="@id/guildline_camera_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_fps"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/camera_fps"
+        app:layout_constraintEnd_toStartOf="@id/guildline_spin_start"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_brightness_value"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="50"
+        app:layout_constraintBottom_toBottomOf="@+id/text_brightness"
+        app:layout_constraintEnd_toStartOf="@id/guildline_value_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_start"
+        app:layout_constraintTop_toTopOf="@id/text_brightness" />
+
+    <TextView
+        android:id="@+id/text_brightness"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/brightness"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guildline_camera_bot" />
+
+    <TextView
+        android:id="@+id/text_contrast_value"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/text_contrast"
+        app:layout_constraintEnd_toStartOf="@id/guildline_value_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_start"
+        app:layout_constraintTop_toTopOf="@id/text_contrast" />
+
+    <TextView
+        android:id="@+id/text_contrast"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/contrast"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_brightness" />
+
+    <TextView
+        android:id="@+id/text_sharpness_value"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/text_sharpness"
+        app:layout_constraintEnd_toStartOf="@id/guildline_value_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_start"
+        app:layout_constraintTop_toTopOf="@id/text_sharpness" />
+
+    <TextView
+        android:id="@+id/text_sharpness"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/sharpness"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_contrast" />
+
+    <TextView
+        android:id="@+id/text_gamma_value"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/text_gamma"
+        app:layout_constraintEnd_toStartOf="@id/guildline_value_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_start"
+        app:layout_constraintTop_toTopOf="@id/text_gamma" />
+
+    <TextView
+        android:id="@+id/text_gamma"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/gamma"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_sharpness" />
+
+    <TextView
+        android:id="@+id/text_hue_value"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/text_hue"
+        app:layout_constraintEnd_toStartOf="@id/guildline_value_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_start"
+        app:layout_constraintTop_toTopOf="@id/text_hue" />
+
+    <TextView
+        android:id="@+id/text_hue"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/hue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_gamma" />
+
+    <TextView
+        android:id="@+id/text_saturation_value"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30"
+        app:layout_constraintBottom_toBottomOf="@+id/text_saturation"
+        app:layout_constraintEnd_toStartOf="@id/guildline_value_end"
+        app:layout_constraintStart_toEndOf="@id/guildline_value_start"
+        app:layout_constraintTop_toTopOf="@id/text_saturation" />
+
+    <TextView
+        android:id="@+id/text_saturation"
+        style="@style/MainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/saturation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_hue" />
+
+    <TextView
+        android:id="@+id/text_resolution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/resolution"
+        app:layout_constraintStart_toStartOf="@id/guildline_camera_end"
+        app:layout_constraintTop_toBottomOf="@+id/guildline_camera_bot" />
+
+    <TextView
+        android:id="@+id/text_power_line_f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/power_line_frequency"
+        app:layout_constraintStart_toStartOf="@id/guildline_camera_end"
+        app:layout_constraintTop_toBottomOf="@+id/text_resolution" />
+
+    <ToggleButton
+        android:id="@+id/btn_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/record"
+        android:textOn="@string/recording"
+        app:layout_constraintStart_toEndOf="@id/guildline_btn_end"
+        app:layout_constraintTop_toBottomOf="@id/btn_take_photo" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_value_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_value_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_camera_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.48" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_btn_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.82" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_spin_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_camera_bot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

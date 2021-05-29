@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="100dp"
+    android:paddingVertical="20dp"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="horizontal"
+        style="@style/MainLLayout"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:background="@mipmap/ic_launcher"
+            android:layout_weight="1"
+            android:id="@+id/btn_sensor"
+            style="@style/MainBtn" />
+
+        <TextView
+            android:layout_weight="2"
+            style="@style/MainText"
+            android:text="@string/main_sensor" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="horizontal"
+        style="@style/MainLLayout"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:background="@mipmap/ic_launcher"
+            android:layout_weight="1"
+            android:id="@+id/btn_camera"
+            style="@style/MainBtn" />
+
+        <TextView
+            android:layout_weight="2"
+            style="@style/MainText"
+            android:text="@string/main_camera" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="horizontal"
+        style="@style/MainLLayout"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:background="@mipmap/ic_launcher"
+            android:layout_weight="1"
+            android:id="@+id/btn_device_control"
+            style="@style/MainBtn" />
+
+        <TextView
+            android:layout_weight="2"
+            style="@style/MainText"
+            android:text="@string/main_device_control" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="horizontal"
+        style="@style/MainLLayout"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:background="@mipmap/ic_launcher"
+            android:layout_weight="1"
+            android:id="@+id/btn_af_activity"
+            style="@style/MainBtn" />
+
+        <TextView
+            android:layout_weight="2"
+            style="@style/MainText"
+            android:text="@string/main_all" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

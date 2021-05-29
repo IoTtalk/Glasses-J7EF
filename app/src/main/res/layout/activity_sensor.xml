@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_update_rate"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_acc_r"
+            style="@style/SensorText"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_gravity_r"
+            style="@style/SensorText"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_acc_r" />
+
+        <TextView
+            android:id="@+id/text_gyro_r"
+            style="@style/SensorText"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_gravity_r" />
+
+
+        <TextView
+            android:id="@+id/text_light_r"
+            style="@style/SensorText"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_gyro_r" />
+
+        <TextView
+            android:id="@+id/text_linear_acc_r"
+            style="@style/SensorText"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_light_r" />
+
+        <TextView
+            android:id="@+id/text_mag_r"
+            style="@style/SensorText"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_linear_acc_r" />
+
+        <TextView
+            android:id="@+id/text_rv_r"
+            style="@style/SensorText"
+            android:text="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_mag_r" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_btn"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_acc"
+            style="@style/SensorToggleBtn" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_gravity"
+            style="@style/SensorToggleBtn" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_gyro"
+            style="@style/SensorToggleBtn" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_light"
+            style="@style/SensorToggleBtn" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_linear_acc"
+            style="@style/SensorToggleBtn" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_mag"
+            style="@style/SensorToggleBtn" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_rv"
+            style="@style/SensorToggleBtn" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_acc"
+            style="@style/SensorText"
+            android:text="@string/accelerometer" />
+
+        <TextView
+            android:id="@+id/text_gravity"
+            style="@style/SensorText"
+            android:text="@string/gravity" />
+
+        <TextView
+            android:id="@+id/text_gyro"
+            style="@style/SensorText"
+            android:text="@string/gyroscope" />
+
+
+        <TextView
+            android:id="@+id/text_light"
+            style="@style/SensorText"
+            android:text="@string/light" />
+
+        <TextView
+            android:id="@+id/text_linear_acc"
+            style="@style/SensorText"
+            android:text="@string/linear_accelerometer" />
+
+        <TextView
+            android:id="@+id/text_mag"
+            style="@style/SensorText"
+            android:text="@string/magnetic_field"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_gyro" />
+
+        <TextView
+            android:id="@+id/text_rv"
+            style="@style/SensorText"
+            android:text="@string/rotation_vector" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_value"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_weight="16"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_acc_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_gravity_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_acc_v" />
+
+        <TextView
+            android:id="@+id/text_gyro_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_gravity_v" />
+
+
+        <TextView
+            android:id="@+id/text_light_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_gyro_v" />
+
+        <TextView
+            android:id="@+id/text_linear_acc_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_light_v" />
+
+        <TextView
+            android:id="@+id/text_mag_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_linear_acc_v" />
+
+        <TextView
+            android:id="@+id/text_rv_v"
+            style="@style/SensorText"
+            android:text="@string/sensor_value40"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_mag_v" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

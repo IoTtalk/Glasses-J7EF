@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SurfaceView
+        android:id="@+id/surface_camera"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/guildline_camera_bot"
+        app:layout_constraintEnd_toStartOf="@id/guildline_camera_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_camera_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_preview"
+        app:layout_constraintStart_toEndOf="@id/guildline_camera_end"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_camera_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_preview"
+        app:layout_constraintStart_toEndOf="@id/guildline_camera_end"
+        app:layout_constraintTop_toBottomOf="@id/btn_camera_open" />
+
+    <ToggleButton
+        android:id="@+id/btn_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/record"
+        android:textOn="@string/recording"
+        app:layout_constraintStart_toEndOf="@id/guildline_btn_end"
+        app:layout_constraintTop_toBottomOf="@id/btn_take_photo" />
+
+    <Button
+        android:id="@+id/btn_take_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/take_photo"
+        app:layout_constraintStart_toEndOf="@+id/guildline_btn_end"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_camera_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.48" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_camera_bot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guildline_btn_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.82" />
+
+
+    <TextView
+        android:id="@+id/text_acc_r"
+        style="@style/SensorText"
+        android:text="0"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guildline_camera_end"
+        app:layout_constraintTop_toTopOf="@id/guildline_camera_bot" />
+
+    <ToggleButton
+        android:id="@+id/btn_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@string/acc"
+        android:textOn="@string/acc"
+        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toEndOf="@+id/text_acc_r"
+        app:layout_constraintTop_toTopOf="@id/guildline_camera_bot" />
+
+    <TextView
+        android:id="@+id/text_acc_v"
+        style="@style/SensorText"
+        android:layout_width="wrap_content"
+        android:text="@string/sensor_value30"
+        android:layout_marginStart="25dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_acc"
+        app:layout_constraintTop_toTopOf="@id/guildline_camera_bot" />
+
+    <TextView
+        android:id="@+id/text_brightness"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Brightness"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_displaymode" />
+
+    <TextView
+        android:id="@+id/text_brightness_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="15"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_brightness"
+        app:layout_constraintStart_toEndOf="@id/text_brightness"
+        app:layout_constraintTop_toTopOf="@id/text_brightness" />
+
+    <SeekBar
+        android:id="@+id/seekbar_brightness"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:max="20"
+        android:min="0"
+        android:progress="12"
+        app:layout_constraintEnd_toEndOf="@id/guildline_camera_end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_brightness" />
+
+    <RadioGroup
+        android:id="@+id/radio_displaymode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guildline_camera_bot">
+
+        <RadioButton
+            android:id="@+id/btn_display_2D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checked="true"
+            android:text="2D"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioButton
+            android:id="@+id/btn_display_3D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="10dp"
+            android:text="3D"
+            android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@id/seekbar_brightness" />
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

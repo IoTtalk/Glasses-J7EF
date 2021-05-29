@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">TestJJSDK</string>
+
+    <string name="main_sensor">Sensor Example</string>
+    <string name="main_camera">Camera Example</string>
+    <string name="main_device_control">Device Control Example</string>
+    <string name="main_all">All Features</string>
+
+    <string name="accelerometer">ACCELEROMETER :</string>
+    <string name="gravity">GRAVITY :</string>
+    <string name="gyroscope">GYROSCOPE :</string>
+    <string name="light">LIGHT :</string>
+    <string name="linear_accelerometer">LINEAR ACCELEROMETER :</string>
+    <string name="magnetic_field">COMPASS :</string>
+    <string name="rotation_vector">ROTATION_VECTOR :</string>
+
+    <string name="sensor_value1d">%d hz.</string>
+    <string name="sensor_value1f">%.1f\t</string>
+    <string name="sensor_value10">0</string>
+    <string name="sensor_value30">0, 0, 0</string>
+    <string name="sensor_value3">%.5f\t, %.5f\t, %.5f</string>
+    <string name="sensor_value40">0, 0, 0, 0</string>
+    <string name="sensor_value4">%.5f\t, %.5f\t, %.5f, %.5f</string>
+
+    <string name="camera_fps">%d fps.</string>
+    <string name="start_preview">Start Preview</string>
+    <string name="stop_preview">Stop Preview</string>
+    <string name="take_photo">Take photo</string>
+    <string name="brightness">Brightness :</string>
+    <string name="contrast">Contrast :</string>
+    <string name="sharpness">Sharpness :</string>
+    <string name="gamma">Gamma :</string>
+    <string name="hue">Hue :</string>
+    <string name="saturation">Saturation :</string>
+    <string name="resolution">Resolution :</string>
+    <string name="power_line_frequency">power line frequency :</string>
+    <string name="record">Record</string>
+    <string name="recording">Recording</string>
+
+    <string name="acc">Acc</string>
+    <string name="Gyro">Gyro</string>
+</resources>
