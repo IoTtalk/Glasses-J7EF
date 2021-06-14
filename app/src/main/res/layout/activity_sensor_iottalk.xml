@@ -102,6 +102,12 @@
             android:text="@string/sensor_value30" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+    <TextView
+        android:id="@+id/text_connect_ph"
+        style="@style/SensorText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/connect_info" />
 
     <TextView
         android:id="@+id/text_phone"
