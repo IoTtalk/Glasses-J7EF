@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 		imgBtnAf = findViewById(R.id.btn_af_activity);
 
 		imgBtnSensor.setOnClickListener(v -> startActivity(new Intent(this,
-				SensorActivity.class)));
+				IottalkSensorActivity.class)));
 		imgBtnCamera.setOnClickListener(v -> startActivity(new Intent(this,
 				CameraActivity.class)));
 		imgBtnDc.setOnClickListener(
