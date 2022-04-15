@@ -16,8 +16,7 @@ import java.util.Objects;
 public class Dan extends Thread{
     private String endpoint;
     private String id;
-    private String state = "SUSPEND";
-//    private String state = "RESUME";
+    private String state = "SUSPEND";   // Change to "RESUME", if you want auto rebind and push.
     private JSONObject profile;
     private String dan_log_tag = "DAN";
     private Thread ctrlChannelThread;
@@ -85,8 +84,6 @@ public class Dan extends Thread{
         } catch (Csmapi.CsmError csmError) {
             csmError.printStackTrace();
         }
-
-        //TODO: implement control channel
     }
 
     public boolean deregister() {
