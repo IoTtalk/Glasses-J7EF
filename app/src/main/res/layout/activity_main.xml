@@ -9,71 +9,88 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:orientation="horizontal"
         style="@style/MainLLayout"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <ImageButton
-            android:background="@mipmap/ic_launcher"
-            android:layout_weight="1"
             android:id="@+id/btn_sensor"
-            style="@style/MainBtn" />
+            style="@style/MainBtn"
+            android:layout_weight="1"
+            android:background="@mipmap/ic_launcher" />
 
         <TextView
-            android:layout_weight="2"
             style="@style/MainText"
+            android:layout_weight="2"
             android:text="@string/main_sensor" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:orientation="horizontal"
         style="@style/MainLLayout"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <ImageButton
-            android:background="@mipmap/ic_launcher"
-            android:layout_weight="1"
             android:id="@+id/btn_camera"
-            style="@style/MainBtn" />
+            style="@style/MainBtn"
+            android:layout_weight="1"
+            android:background="@mipmap/ic_launcher" />
 
         <TextView
-            android:layout_weight="2"
             style="@style/MainText"
+            android:layout_weight="2"
             android:text="@string/main_camera" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:orientation="horizontal"
         style="@style/MainLLayout"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <ImageButton
-            android:background="@mipmap/ic_launcher"
-            android:layout_weight="1"
             android:id="@+id/btn_device_control"
-            style="@style/MainBtn" />
+            style="@style/MainBtn"
+            android:layout_weight="1"
+            android:background="@mipmap/ic_launcher" />
 
         <TextView
-            android:layout_weight="2"
             style="@style/MainText"
+            android:layout_weight="2"
             android:text="@string/main_device_control" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:orientation="horizontal"
         style="@style/MainLLayout"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <ImageButton
-            android:background="@mipmap/ic_launcher"
-            android:layout_weight="1"
             android:id="@+id/btn_af_activity"
-            style="@style/MainBtn" />
+            style="@style/MainBtn"
+            android:layout_weight="1"
+            android:background="@mipmap/ic_launcher" />
 
         <TextView
-            android:layout_weight="2"
             style="@style/MainText"
+            android:layout_weight="2"
             android:text="@string/main_all" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        style="@style/MainLLayout"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_iottalk_glasses"
+            style="@style/MainBtn"
+            android:layout_weight="1"
+            android:background="@mipmap/ic_launcher" />
+
+        <TextView
+            style="@style/MainText"
+            android:layout_weight="2"
+            android:text="@string/main_iottalk_glasses" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

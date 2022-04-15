@@ -25,9 +25,9 @@ import tw.iottalk.iot.Csmapi;
  * This Activity is for SensorManager Example.
  **/
 
-public class IottalkSensorActivity extends AppCompatActivity {
+public class IottalkGlassesActivity extends AppCompatActivity {
 
-	private static final int COUNT_OF_SENSORS = 7;
+	private static final int COUNT_OF_SENSORS = 8;
 	private final int Acc = 0;
 	private final int Gyro = 1;
 	private final int Rv = 2;
@@ -35,6 +35,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 	private final int Light = 4;
 	private final int LinearAcc = 5;
 	private final int Gravity = 6;
+	private final int Orientation = 7;
 	private Context context = this;
 	private TextView[] sensorValue = new TextView[COUNT_OF_SENSORS];
 	private TextView[] updateFrequency = new TextView[COUNT_OF_SENSORS];
@@ -42,6 +43,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 
 	private Handler handler = new Handler();
 	private Runnable rateRunnable;
+	private Runnable pushRunnable;
 
 	private SensorManager sensorManager;
 	private SensorDataListener sensorDataListener = new SensorDataListener() {
@@ -56,8 +58,13 @@ public class IottalkSensorActivity extends AppCompatActivity {
 	private float[] accData = new float[3];
 	private float[] gyrData= new float[3];
 	private float[] magData= new float[3];
+	private float[] rvData = new float[4];
 	private float[] oriData= new float[3];
 	private float[] lightData = new float[1];
+	private float[] linearAccData = new float[3];
+	private float[] gravityData = new float[3];
+	private float[] toFData = new float[64];
+
 
 	private String iottalk_server = "https://5.iottalk.tw";
 	private String mac_addr = "J7EF";
@@ -66,13 +73,13 @@ public class IottalkSensorActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_sensor);
+		setContentView(R.layout.activity_glasses_iottalk);
 		initUIComponent();
 
 		sensorManager = new SensorManager(context);
 		sensorManager.addSensorDataListener(sensorDataListener);
 
-		dan = set_device();
+		dan = init_device();
 		register_device();
 		initTimer();
 		pushTimer();
@@ -85,6 +92,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 		sensorManager.release();
 
 		handler.removeCallbacks(rateRunnable);
+		handler.removeCallbacks(pushRunnable);
 	}
 
 	@Override
@@ -100,6 +108,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 		sensorValue[LinearAcc] = findViewById(R.id.text_linear_acc_v);
 		sensorValue[Compass] = findViewById(R.id.text_mag_v);
 		sensorValue[Rv] = findViewById(R.id.text_rv_v);
+		sensorValue[Orientation] = findViewById(R.id.text_ori_v);
 
 		updateFrequency[Acc] = findViewById(R.id.text_acc_r);
 		updateFrequency[Gravity] = findViewById(R.id.text_gravity_r);
@@ -108,6 +117,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 		updateFrequency[LinearAcc] = findViewById(R.id.text_linear_acc_r);
 		updateFrequency[Compass] = findViewById(R.id.text_mag_r);
 		updateFrequency[Rv] = findViewById(R.id.text_rv_r);
+		updateFrequency[Orientation] = findViewById(R.id.text_ori_r);
 
 		initSwitch();
 	}
@@ -120,6 +130,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 		SwitchCompat switchLinearAcc = findViewById(R.id.switch_linear_acc);
 		SwitchCompat switchMag = findViewById(R.id.switch_mag);
 		SwitchCompat switchRv = findViewById(R.id.switch_rv);
+		SwitchCompat switchOri = findViewById(R.id.switch_ori);
 		switchAcc.setOnCheckedChangeListener((button, checked) -> {
 			if (checked) {
 				sensorManager.open(SensorManager.SENSOR_TYPE_ACCELEROMETER_3D);
@@ -184,6 +195,15 @@ public class IottalkSensorActivity extends AppCompatActivity {
 				state[Rv] = false;
 			}
 		});
+		switchOri.setOnCheckedChangeListener((button, checked) -> {
+			if (checked) {
+				sensorManager.open(SensorManager.SENSOR_TYPE_DEVICE_ORIENTATION);
+				state[Orientation] = true;
+			} else {
+				sensorManager.close(SensorManager.SENSOR_TYPE_DEVICE_ORIENTATION);
+				state[Orientation] = false;
+			}
+		});
 	}
 
 	private void initTimer() {
@@ -201,44 +221,54 @@ public class IottalkSensorActivity extends AppCompatActivity {
 					sensorValue[Acc].setText(
 							getString(R.string.sensor_value3, data[0], data[1], data[2]));
 					count[Acc]++;
-					for (int i=0; i<3; i++){ accData[i] = data[i]; }
+					System.arraycopy(data, 0, accData, 0, 3);
 					break;
 				case SensorManager.SENSOR_TYPE_GRAVITY_VECTOR:
 					sensorValue[Gravity].setText(
 							getString(R.string.sensor_value3, data[0], data[1], data[2]));
 					count[Gravity]++;
+					System.arraycopy(data, 0, gravityData, 0, 3);
 					break;
 				case SensorManager.SENSOR_TYPE_GYROMETER_3D:
 					sensorValue[Gyro].setText(
 							getString(R.string.sensor_value3, data[0], data[1], data[2]));
 					count[Gyro]++;
-					for (int i=0; i<3; i++){ gyrData[i] = data[i]; }
+					System.arraycopy(data, 0, gyrData, 0, 3);
 					break;
 				case SensorManager.SENSOR_TYPE_AMBIENTLIGHT:
 					sensorValue[Light].setText(getString(R.string.sensor_value1f, data[0]));
 					count[Light]++;
-					for (int i=0; i<1; i++){ lightData[i] = data[i]; }
+					System.arraycopy(data, 0, lightData, 0, 1);
 					break;
 				case SensorManager.SENSOR_TYPE_LINEAR_ACCELEROMETER:
 					sensorValue[LinearAcc].setText(
 							getString(R.string.sensor_value3, data[0], data[1], data[2]));
 					count[LinearAcc]++;
+					System.arraycopy(data, 0, linearAccData, 0, 3);
 					break;
 				case SensorManager.SENSOR_TYPE_COMPASS_3D:
 					sensorValue[Compass].setText(
 							getString(R.string.sensor_value3, data[0], data[1], data[2]));
 					count[Compass]++;
-					for (int i=0; i<3; i++){ magData[i] = data[i]; }
+					System.arraycopy(data, 0, magData, 0, 3);
 					break;
 				case SensorManager.SENSOR_TYPE_DEVICE_ORIENTATION:
 					sensorValue[Rv].setText(
 							getString(R.string.sensor_value4, data[0], data[1], data[2], data[3]));
 					count[Rv]++;
-					float[] ori = Quaternion2EulerAngles(data);
-					for (int i=0;i<3;i++){
-						ori[i] = (float) Math.toDegrees(ori[i]);
-						oriData[i] = ori[i];
+					System.arraycopy(data, 0, rvData, 0, 4);
+
+					if (state[Orientation]) {
+						float[] ori = Quaternion2EulerAngles(data);
+						for (int i=0;i<3;i++){
+							ori[i] = (float) Math.toDegrees(ori[i]);
+							oriData[i] = ori[i];
+						}
+						sensorValue[Orientation].setText(
+								getString(R.string.sensor_value3, ori[0], ori[1], ori[2]));
+						count[Orientation]++;
 					}
+
 					break;
 			}
 		});
@@ -255,6 +285,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 					getString(R.string.sensor_value1d, count[LinearAcc]));
 			updateFrequency[Compass].setText(getString(R.string.sensor_value1d, count[Compass]));
 			updateFrequency[Rv].setText(getString(R.string.sensor_value1d, count[Rv]));
+			updateFrequency[Orientation].setText(getString(R.string.sensor_value1d, count[Orientation]));
 
 			for (int i = 0; i < COUNT_OF_SENSORS; i++) {
 				count[i] = 0;
@@ -263,18 +294,13 @@ public class IottalkSensorActivity extends AppCompatActivity {
 	}
 
 	private void pushTimer() {
-		rateRunnable = () -> {
-			Thread pushthread = new Thread(new Runnable() {
-				@Override
-				public void run() {
-					pushDataToIottalk();
-				}
-			});
-			pushthread.start();
+		pushRunnable = () -> {
+			Thread pushThread = new Thread(this::pushDataToIottalk);
+			pushThread.start();
 
-			handler.postDelayed(rateRunnable, 1000);
+			handler.postDelayed(pushRunnable, 1000);
 		};
-		handler.postDelayed(rateRunnable, 1000);
+		handler.postDelayed(pushRunnable, 1000);
 	}
 
 	private void pushDataToIottalk() {
@@ -305,7 +331,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 				e.printStackTrace();
 			}
 		}
-		if(state[Rv]){
+		if(state[Orientation]){
 			JSONArray data;
 			try {
 				data = new JSONArray(oriData);
@@ -319,6 +345,24 @@ public class IottalkSensorActivity extends AppCompatActivity {
 			try {
 				data = new JSONArray(lightData);
 				dan.push("Luminance-I",data);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		if(state[LinearAcc]){
+			JSONArray data;
+			try {
+				data = new JSONArray(linearAccData);
+				dan.push("LinearAcceleration-I",data);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		if(state[Gravity]){
+			JSONArray data;
+			try {
+				data = new JSONArray(gravityData);
+				dan.push("Gravity-I",data);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -351,8 +395,7 @@ public class IottalkSensorActivity extends AppCompatActivity {
 		return angles;
 	}
 
-	Dan set_device() {
-		Dan dan = null;
+	Dan init_device() {
 		final JSONArray dflist;
 		dflist = new JSONArray();
 		dflist.put("Acceleration-I");
@@ -360,6 +403,9 @@ public class IottalkSensorActivity extends AppCompatActivity {
 		dflist.put("Magnetometer-I");
 		dflist.put("Orientation-I");
 		dflist.put("Luminance-I");
+		dflist.put("LinearAcceleration-I");
+		dflist.put("Gravity-I");
+
 		JSONObject profile;
 		try {
 			profile = new JSONObject() {
@@ -375,62 +421,19 @@ public class IottalkSensorActivity extends AppCompatActivity {
 			dan = new Dan(iottalk_server,mac_addr, profile);
 			return dan;
 
-
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 
 		return dan;
 	}
+
 	void register_device() {
-		Thread regthread = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Log.v("Thread", "Dan.register start");
-				dan.register_device();
-				Log.v("Thread", "Dan.register finish");
-			}
+		Thread regThread = new Thread(() -> {
+			Log.v("Thread", "Dan.register start");
+			dan.register_device();
+			Log.v("Thread", "Dan.register finish");
 		});
-		regthread.start();
-	}
-
-	void register_device_c() {
-		final JSONArray dflist;
-		dflist = new JSONArray();
-		dflist.put("Acceleration-I");
-		dflist.put("Gyroscope-I");
-		dflist.put("Magnetometer-I");
-		dflist.put("Orientation-I");
-		dflist.put("Luminance-I");
-		JSONObject profile;
-		try {
-			profile = new JSONObject() {
-				{
-					put("d_name", "01.Glasses");
-					put("dm_name", "Glasses");
-					put("u_name", "yb");
-					put("is_sim", false);
-					put("df_list", dflist);
-				}
-			};
-
-			final JSONObject finalProfile = profile;
-			Thread regthread = new Thread(new Runnable() {
-				@Override
-				public void run() {
-					//
-					try {
-						Csmapi.register(mac_addr, finalProfile);
-					} catch (JSONException | InterruptedIOException e) {
-						e.printStackTrace();
-					}
-					Log.v("Thread", "Csmapi.register finish");
-				}
-			});
-			regthread.start();
-
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+		regThread.start();
 	}
 }

@@ -31,7 +31,7 @@
             android:name=".AllFeatureActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".IottalkSensorActivity"
+            android:name=".IottalkGlassesActivity"
             android:screenOrientation="landscape" />
     </application>
 

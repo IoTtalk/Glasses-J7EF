@@ -5,6 +5,7 @@
     <string name="main_camera">Camera Example</string>
     <string name="main_device_control">Device Control Example</string>
     <string name="main_all">All Features</string>
+    <string name="main_iottalk_glasses">IoTtalk Glasses Example</string>
 
     <string name="accelerometer">ACCELEROMETER :</string>
     <string name="gravity">GRAVITY :</string>
@@ -39,4 +40,5 @@
 
     <string name="acc">Acc</string>
     <string name="Gyro">Gyro</string>
+    <string name="orientation">ORIENTATION</string>
 </resources>
